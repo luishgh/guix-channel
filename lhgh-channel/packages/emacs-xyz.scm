@@ -38,3 +38,36 @@ trees.  Entering symex mode allows you to reason about your code in
 terms of its structure, similar to other tools like paredit and
 lispy.")
      (license license:public-domain))))
+
+(define-public emacs-pomm
+  (package
+   (name "emacs-pomm")
+   (version "0.1.2")
+   (source (origin
+            (method git-fetch)
+            (uri (git-reference
+                  (url "https://github.com/SqrtMinusOne/pomm.el")
+                  (commit version)))
+            (file-name (git-file-name name version))
+            (sha256
+             (base32
+              "06if507c163fia28zzax735r7mwlpa5vi0mmgddyn3vxsirnh4qw"))))
+   (build-system emacs-build-system)
+   (propagated-inputs
+    `(("emacs-alert" ,emacs-alert)
+      ("emacs-transient" ,emacs-transient)))
+   (home-page "https://github.com/SqrtMinusOne/pomm.el")
+   (synopsis "Yet another implementation of pomodoro timer for Emacs")
+   (description "An implementation of a Pomodoro timer for Emacs.  Distintive features
+of this particular implementation:
+@itemize
+@item Managing the timer with transient.el (@code{pomm} command)
+@item Persistent state between Emacs sessions.
+  So one could close & reopen Emacs without interruption the timer.
+@end itemize
+
+Take a look at @code{pomm-update-mode-line-string} on how to setup this
+package with a modeline.
+Also take a look at README at
+@url{https://github.com/SqrtMinusOne/pomm.el} for more information.")
+   (license license:gpl3)))
