@@ -71,3 +71,30 @@ Also take a look at README at
 @url{https://github.com/SqrtMinusOne/pomm.el} for more information.")
     (license license:gpl3)))
 
+(define-public emacs-org-roam-ui
+  (package
+    (name "emacs-org-roam-ui")
+    (version "20220104.1733")
+    (source (origin
+              (method git-fetch)
+              (uri (git-reference
+                    (url "https://github.com/org-roam/org-roam-ui")
+                    (commit "5ecd418060bf606924ac86faa1aa4036d4c785fb")))
+              (file-name (git-file-name name version))
+              (sha256
+               (base32
+                "1gj8bca7y8zjjnqjs0mg6vv2nvjrkqbqrj055zwkhz9sj36q5s5h"))))
+    (build-system emacs-build-system)
+    (arguments
+     '(#:include (cons "^out/" %default-include)))
+    (propagated-inputs (list emacs-org-roam emacs-simple-httpd emacs-websocket))
+    (home-page "https://github.com/org-roam/org-roam-ui")
+    ;; TRANSLATORS: "Zettelkasten" should not be translated.
+    (synopsis "Graphical frontend for exploring your org-roam Zettelkasten")
+    (description
+     "Org-Roam-UI is a frontend for exploring and interacting with your
+org-roam notes.
+Org-Roam-UI is meant a successor of org-roam-server
+that extends functionality of org-roam with a Web app that runs
+side-by-side with Emacs.")
+    (license license:gpl3)))
