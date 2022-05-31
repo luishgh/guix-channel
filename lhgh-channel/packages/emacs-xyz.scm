@@ -74,16 +74,16 @@ Also take a look at README at
 (define-public emacs-org-roam-ui
   (package
     (name "emacs-org-roam-ui")
-    (version "20220104.1733")
+    (version "20220225.2151")
     (source (origin
               (method git-fetch)
               (uri (git-reference
                     (url "https://github.com/org-roam/org-roam-ui")
-                    (commit "5ecd418060bf606924ac86faa1aa4036d4c785fb")))
+                    (commit "9474a254390b1e42488a1801fed5826b32a8030b")))
               (file-name (git-file-name name version))
               (sha256
                (base32
-                "1gj8bca7y8zjjnqjs0mg6vv2nvjrkqbqrj055zwkhz9sj36q5s5h"))))
+                "0v54vxh95izch74wz2dl2dkdqicbvshra55l6qvd4xl5qmfhpjdc"))))
     (build-system emacs-build-system)
     (arguments
      '(#:include (cons "^out/" %default-include)))
