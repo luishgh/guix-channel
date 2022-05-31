@@ -74,7 +74,7 @@ Also take a look at README at
 (define-public emacs-org-roam-ui
   (package
     (name "emacs-org-roam-ui")
-    (version "20220225.2151")
+    (version "0.1.0")
     (source (origin
               (method git-fetch)
               (uri (git-reference
